@@ -97,41 +97,42 @@ const Confirm = () => {
               </p>
             </div>
             <div className="w-full flex text-center items-center justify-center flex-col gap-2">
-              <div className="w-3/6  lg:w-2/6  flex justify-between">
+              <div className="w-full md:w-5/6  lg:w-3/6  flex justify-between">
                 <h1 className="">Full name</h1>
                 <p className="tracking-wide text-base font-bold">
                   {state.fullname}
                 </p>
               </div>
-              <div className="w-3/6  lg:w-2/6  flex justify-between">
+              <div className="w-full md:w-5/6  lg:w-3/6  flex justify-between">
                 <h1 className="">Email</h1>
                 <p className="tracking-wide text-base font-bold">
                   {state.email}
                 </p>
               </div>
-              <div className="w-3/6  lg:w-2/6  flex justify-between">
+              <div className="w-full md:w-5/6  lg:w-3/6  flex justify-between">
                 <h1 className="">Phone Number</h1>
                 <p className="tracking-wide text-base font-bold">
                   {state.phoneNumber}
                 </p>
               </div>
-              <div className="w-3/6  lg:w-2/6  flex justify-between">
+              <div className="w-full md:w-5/6  lg:w-3/6  flex justify-between">
                 <h1 className="">Number of Tickets</h1>
                 <p className="tracking-wide text-base font-bold">
                   {state.tickets}
                 </p>
               </div>
-              <div className="w-3/6  lg:w-2/6  flex justify-between">
+              <div className="w-full md:w-5/6  lg:w-3/6  flex justify-between">
                 <h1 className="">Total Amount</h1>
                 <p className="tracking-wide text-base font-bold">
+                  $
                   {new Date().getTime() < new Date(2024, 1, 8).getTime()
                     ? Number(state.tickets) * 150
                     : Number(state.tickets) * 200}
                 </p>
               </div>
-              <div className="w-3/6  lg:w-2/6  flex justify-between">
+              <div className="  flex justify-between">
                 <button
-                  className="bg-black w-[50vw] text-white py-2 rounded"
+                  className="bg-black w-[80vw] md:w-[60vw] lg:w-[20vw] text-white py-2 rounded"
                   onClick={initiatePayment}
                 >
                   Continue To Payment
