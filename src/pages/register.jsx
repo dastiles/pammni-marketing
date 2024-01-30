@@ -77,7 +77,7 @@ const Register = () => {
         </div>
         <div className="flex flex-col justify-center items-center">
           <div className="text-center">
-            <h1 className="text-[2.5rem] tracking-wider">
+            <h1 className="text-[2rem] lg:text-[2.5rem] tracking-wider">
               Digital Mastery 2024 Registration
             </h1>
             <p className="text-md text-gray-600">
@@ -101,7 +101,7 @@ const Register = () => {
                   type="text"
                   id="fullname"
                   placeholder="stiles madhuku"
-                  className="mt-1 w-[50vw] rounded-md border-gray-200 shadow-sm "
+                  className="mt-1 w-[80vw] md:w-[60vw] lg:w-[50vw] rounded-md border-gray-200 shadow-sm "
                   value={formData.fullname}
                   onChange={handleInputChange}
                 />
@@ -122,7 +122,7 @@ const Register = () => {
                   type="email"
                   id="email"
                   placeholder="stiles madhuku"
-                  className="mt-1 w-[50vw] rounded-md border-gray-200 shadow-sm "
+                  className="mt-1 w-[80vw] md:w-[60vw] lg:w-[50vw] rounded-md border-gray-200 shadow-sm "
                   value={formData.email}
                   onChange={handleInputChange}
                 />
@@ -140,7 +140,7 @@ const Register = () => {
                   type="number"
                   id="phoneNumber"
                   placeholder="0771315239"
-                  className="mt-1 w-[50vw] rounded-md border-gray-200 shadow-sm "
+                  className="mt-1 w-[80vw] md:w-[60vw] lg:w-[50vw] rounded-md border-gray-200 shadow-sm "
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
                 />
@@ -158,7 +158,7 @@ const Register = () => {
                   type="number"
                   id="tickets"
                   placeholder="1"
-                  className="mt-1 w-[50vw] rounded-md border-gray-200 shadow-sm "
+                  className="mt-1 w-[80vw] md:w-[60vw] lg:w-[50vw] rounded-md border-gray-200 shadow-sm "
                   value={formData.tickets}
                   onChange={handleInputChange}
                 />
@@ -167,7 +167,7 @@ const Register = () => {
                 )}
               </div>
               <div className="">
-                <button className="bg-black w-[50vw] text-white py-2 rounded">
+                <button className="bg-black mt-1 w-[80vw] md:w-[60vw] lg:w-[50vw] text-white py-2 rounded">
                   Register
                 </button>
               </div>
