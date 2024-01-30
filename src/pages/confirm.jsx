@@ -8,7 +8,7 @@ import { Permission, Role } from "appwrite";
 const Confirm = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
-  const secretKey = "041ec8f783f34e93ba1608439fc244dc";
+  const secretKey = "5e69d915924e4c5c9b4f7dab88dab2d5";
 
   const initiatePayment = () => {
     let price =
@@ -18,11 +18,11 @@ const Confirm = () => {
     let payment = {
       amountDetails: {
         amount: price,
-        currencyCode: "ZWL",
+        currencyCode: "USD",
       },
       reasonForPayment: "MARKETING",
-      resultUrl: "http://localhost:5174/result",
-      returnUrl: "http://localhost:5174/result",
+      resultUrl: "pammni-marketing.vercel.app/result",
+      returnUrl: "pammni-marketing.vercel.app/result",
     };
     let encryptedJson = CryptoJS.AES.encrypt(
       JSON.stringify(payment),
@@ -33,17 +33,14 @@ const Confirm = () => {
     ).toString();
 
     let payload = { payload: encryptedJson };
-    fetch(
-      "https://api.test.pesepay.com/api/payments-engine/v1/payments/initiate",
-      {
-        method: "POST",
-        headers: {
-          authorization: `c7be4721-c8e4-4af0-b471-63e6c54fb5d4`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      }
-    )
+    fetch("https://api.pesepay.com/api/payments-engine/v1/payments/initiate", {
+      method: "POST",
+      headers: {
+        authorization: `14579676-ec5c-456c-8b7a-f983c92e7155`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
