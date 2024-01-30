@@ -21,8 +21,8 @@ const Confirm = () => {
         currencyCode: "USD",
       },
       reasonForPayment: "MARKETING",
-      resultUrl: "pammni-marketing.vercel.app/result",
-      returnUrl: "pammni-marketing.vercel.app/result",
+      resultUrl: "https://pammni-marketing.vercel.app/result",
+      returnUrl: "https://pammni-marketing.vercel.app/result",
     };
     let encryptedJson = CryptoJS.AES.encrypt(
       JSON.stringify(payment),
