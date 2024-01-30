@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       <div className="py-10 mx-[10vw] lg:mx[20vw]">
-        <div className="flex justify-between items-center">
+        <div className="flex md:justify-between items-center flex-col md:flex-row gap-5">
           <div className="w-[150px]">
             <img src="./pammi-logo.png" alt="" />
           </div>
@@ -17,8 +17,8 @@ const App = () => {
             </Link>
           </div>
         </div>
-        <div className="text-center py-10">
-          <h1 className="text-[4rem]">
+        <div className="text-center md:py-10 py-5">
+          <h1 className="lg:text-[4rem] md:text-[3.5rem] text-[3rem]">
             Digital Mastery <span className="text-blue-500">2024</span>
           </h1>
           <p className="text-xl text-gray-600">Craft, connect & conquer</p>
@@ -27,7 +27,7 @@ const App = () => {
           </p>
         </div>
         <div>
-          <div className="grid grid-cols-2 lg:grid-cols-4 place-content-center gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-content-center gap-5">
             <div className="border-[0.5px] border-gray-400 flex items-center gap-5 rounded py-4 px-5">
               <FaLocationDot className="text-gray-900 text-2xl" />
               <div>
