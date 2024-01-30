@@ -18,7 +18,7 @@ const Success = () => {
 
   const fetchResult = () => {
     fetch(
-      `https://api.test.pesepay.com/api/payments-engine/v1/payments/check-payment?referenceNumber=${reference}`,
+      `https://api.pesepay.com/api/payments-engine/v1/payments/check-payment?referenceNumber=${reference}`,
       {
         method: "GET",
         headers: {
