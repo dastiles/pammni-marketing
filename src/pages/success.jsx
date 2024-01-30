@@ -6,7 +6,7 @@ import { appwriteDatabase } from "../utils/appwrite";
 const Success = () => {
   const navigate = useNavigate();
   const reference = localStorage.getItem("reference") || null;
-  const secretKey = "041ec8f783f34e93ba1608439fc244dc";
+  const secretKey = "5e69d915924e4c5c9b4f7dab88dab2d5";
   const [referencedata, setReferenceData] = useState({});
 
   if (!reference) {
@@ -22,7 +22,7 @@ const Success = () => {
       {
         method: "GET",
         headers: {
-          authorization: `c7be4721-c8e4-4af0-b471-63e6c54fb5d4`,
+          authorization: `14579676-ec5c-456c-8b7a-f983c92e7155`,
           "Content-Type": "application/json",
         },
       }
