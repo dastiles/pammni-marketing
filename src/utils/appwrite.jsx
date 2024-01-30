@@ -8,7 +8,7 @@ client
 
 const account = new Account(client);
 
-account.createEmailSession("dastilesforever@gmail.com", "ch@rlesm@dhuku").then(
+account.createAnonymousSession().then(
   function (response) {
     console.log(response); // Success
   },
@@ -19,4 +19,4 @@ account.createEmailSession("dastilesforever@gmail.com", "ch@rlesm@dhuku").then(
 
 const appwriteDatabase = new Databases(client, "65b7a264bdbc83edc4e1");
 
-export { client, appwriteDatabase };
+export { client, appwriteDatabase, account };
