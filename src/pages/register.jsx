@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { account } from "../utils/appwrite";
+import { account, appwriteDatabase, id } from "../utils/appwrite";
+import { v4 as uuidv4 } from "uuid";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -61,16 +62,9 @@ const Register = () => {
 
   const submitForm = (data) => {
     // Here you can submit the form data to your server or perform any other action
-    console.log("Form submitted:", data);
-    account.createEmailSession(data.email, data.email + data.fullname).then(
-      function (response) {
-        console.log(response); // Success
-        navigate("/confirm", { state: data });
-      },
-      function (error) {
-        console.log(error); // Failure
-      }
-    );
+    console.log("Form submitted:", data.email.toString());
+
+    navigate("/confirm", { state: data });
   };
 
   return (
