@@ -127,12 +127,24 @@ const Confirm = () => {
             window.location.href = decrypted.redirectUrl;
           })
           .catch((error) => {
-            console.log(error);
+            appwriteDatabase
+              .updateDocument(
+                "65b7a264bdbc83edc4e1",
+                "65b7a27ba15d2a23890f",
+                user.$id,
+                {
+                  fullname: state.fullname,
+                  email: state.email,
+                  phone: state.phoneNumber,
+                  numberOfTickets: state.tickets.toString(),
+                }
+              )
+              .then(() => {
+                console.log("saved successfully");
+                window.location.href = decrypted.redirectUrl;
+              })
+              .catch(() => {});
           });
-      })
-      .catch((error) => {
-        // Handle errors from fetch or server
-        console.error("Error:", error);
       });
   };
 
