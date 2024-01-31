@@ -11,9 +11,12 @@ const App = () => {
           <div className="w-[150px]">
             <img src="./pammi-logo.png" alt="" />
           </div>
-          <div>
+          <div className="flex gap-5">
             <Link to={"/register"} className="hover:underline text-lg ">
               Register Now
+            </Link>
+            <Link to={"/admin"} className="hover:underline text-lg ">
+              Admin
             </Link>
           </div>
         </div>
@@ -57,23 +60,49 @@ const App = () => {
               </div>
             </div>
           </div>
-          <div className="text-center py-5 flex flex-col gap-5">
-            <div>
-              <h1 className="font-bold">Early Bird Access</h1>
-              <p>$150 before 8 February 2024</p>
+          <div className="flex w-full flex-col-reverse md:flex-row">
+            <div className="text-center py-5 flex flex-col gap-5 flex-1">
+              <div>
+                <h1 className="font-bold">Early Bird Access</h1>
+                <p>$150 before 8 February 2024</p>
+              </div>
+              <div>
+                <h1 className="font-bold">Late Registrations</h1>
+                <p>$200 after 8 February 2024</p>
+              </div>
+              <p>For Enquiries Contact Liz +263772300101 </p>
+              <p className="text-blue-500">
+                Act Swiftly before the window closes
+              </p>
             </div>
-            <div>
-              <h1 className="font-bold">Late Registrations</h1>
-              <p>$200 after 8 February 2024</p>
+            <div className="flex-1 py-5">
+              <h1 className="font-bold text-xl pb-2">Payments Options</h1>
+              <div>
+                <h1 className="font-bold text-md">Banking Details</h1>
+                <p>
+                  <span className="font-semibold">
+                    Nostro Account Details Bank
+                  </span>
+                  : CBZ Branch: SELOUS AVE A/C{" "}
+                </p>
+                <p>
+                  {" "}
+                  <span className="font-semibold">Name</span>: NO WALLS MEDIA
+                  (PVT) LTD A/C No: 02125655390022
+                </p>
+                <p>
+                  {" "}
+                  <span className="font-semibold">Swift Code</span>:COBZZWHAXXX
+                </p>
+              </div>
             </div>
-            <p className="text-blue-500">
-              Act Swiftly before the window closes
-            </p>
-
+          </div>
+          <div className="w-full flex justify-center flex-col items-center">
             <p className="text-gray-400">
               Secure Online Registration: Effortlessly register and pay online:
               Visa, MasterCard, Innbucks or Ecocash USD
             </p>
+
             <div className="text-center flex justify-center items-center">
               <Link to={"/register"} className="block">
                 <div className="bg-black text-white w-[150px] py-2 rounded">

@@ -1,15 +1,73 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as CryptoJS from "crypto-js";
 import { decryptData } from "../utils/decryptData";
-import { appwriteDatabase } from "../utils/appwrite";
+import { account, appwriteDatabase } from "../utils/appwrite";
 import { Permission, Role } from "appwrite";
+import { useEffect, useState } from "react";
 
 const Confirm = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
   const secretKey = "5e69d915924e4c5c9b4f7dab88dab2d5";
 
+  useEffect(() => {
+    checkUserStatus();
+  }, []);
+
+  const checkUserStatus = async () => {
+    try {
+      let accountDetails = await account.get();
+      setUser(accountDetails);
+    } catch (error) {
+      account.createEmailSession(state.email, "pannimarketing02");
+      setUser(null);
+    }
+  };
+
+  if (!user) {
+    return navigate("/");
+  }
+  console.log(user);
+
+  const payOffline = () => {
+    appwriteDatabase
+      .createDocument(
+        "65b7a264bdbc83edc4e1",
+        "65b7a27ba15d2a23890f",
+        user.$id,
+        {
+          fullname: state.fullname,
+          email: state.email,
+          phone: state.phoneNumber,
+          numberOfTickets: state.tickets.toString(),
+        }
+      )
+      .then(() => {
+        console.log("saved successfully");
+        navigate("/offline");
+      })
+      .catch(() => {
+        appwriteDatabase
+          .updateDocument(
+            "65b7a264bdbc83edc4e1",
+            "65b7a27ba15d2a23890f",
+            user.$id,
+            {
+              fullname: state.fullname,
+              email: state.email,
+              phone: state.phoneNumber,
+              numberOfTickets: state.tickets.toString(),
+            }
+          )
+          .then(() => {
+            console.log("saved successfully");
+            navigate("/offline");
+          })
+          .catch(() => {});
+      });
+  };
   const initiatePayment = () => {
     let price =
       new Date().getTime() < new Date(2024, 1, 8).getTime()
@@ -56,7 +114,7 @@ const Confirm = () => {
           .createDocument(
             "65b7a264bdbc83edc4e1",
             "65b7a27ba15d2a23890f",
-            decrypted.referenceNumber,
+            user.$id,
             {
               fullname: state.fullname,
               email: state.email,
@@ -130,12 +188,20 @@ const Confirm = () => {
                     : Number(state.tickets) * 200}
                 </p>
               </div>
-              <div className="  flex justify-between">
+              <div className="bg-slate-600 h-[1px] w-full"></div>
+              <div className="  flex gap-5">
                 <button
-                  className="bg-black w-[80vw] md:w-[60vw] lg:w-[20vw] text-white py-2 rounded"
+                  className="bg-black w-[40vw] md:w-[30vw] lg:w-[10vw] text-white py-2 rounded"
                   onClick={initiatePayment}
                 >
-                  Continue To Payment
+                  Pay online
+                </button>
+
+                <button
+                  className="bg-black w-[40vw] md:w-[30vw] lg:w-[10vw] text-white py-2 rounded"
+                  onClick={payOffline}
+                >
+                  Pay offline
                 </button>
               </div>
             </div>

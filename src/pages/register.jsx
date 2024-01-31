@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { account } from "../utils/appwrite";
+import { ID } from "appwrite";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -10,6 +13,18 @@ const Register = () => {
     tickets: 1,
   });
   const [formErrors, setFormErrors] = useState({});
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {}, []);
+
+  const checkUserStatus = async () => {
+    try {
+      let accountDetails = await account.get();
+      setUser(accountDetails);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
@@ -61,8 +76,30 @@ const Register = () => {
   const submitForm = (data) => {
     // Here you can submit the form data to your server or perform any other action
     console.log("Form submitted:", data.email.toString());
-
-    navigate("/confirm", { state: data });
+    account
+      .create(ID.unique(), data.email, "pannimarketing02", data.fullname)
+      .then(() => {
+        account
+          .createEmailSession(data.email, "pannimarketing02")
+          .then(() => {
+            navigate("/confirm", { state: data });
+            toast.success("Registration successfull");
+          })
+          .catch(() => {
+            navigate("/");
+          });
+      })
+      .catch(() => {
+        account
+          .createEmailSession(data.email, "pannimarketing02")
+          .then(() => {
+            navigate("/confirm", { state: data });
+            toast.success("Registration successfull");
+          })
+          .catch(() => {
+            navigate("/");
+          });
+      });
   };
 
   return (

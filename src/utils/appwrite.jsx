@@ -8,14 +8,14 @@ client
 
 const account = new Account(client);
 
-account.createAnonymousSession().then(
-  function (response) {
-    console.log(response); // Success
-  },
-  function (error) {
-    console.log(error); // Failure
-  }
-);
+// account.createAnonymousSession().then(
+//   function (response) {
+//     console.log(response); // Success
+//   },
+//   function (error) {
+//     console.log(error); // Failure
+//   }
+// );
 
 const appwriteDatabase = new Databases(client, "65b7a264bdbc83edc4e1");
 
