@@ -1,21 +1,33 @@
 import { Link, useNavigate } from "react-router-dom";
 import { decryptData } from "../utils/decryptData";
 import { useEffect, useState } from "react";
-import { appwriteDatabase } from "../utils/appwrite";
+import { account, appwriteDatabase } from "../utils/appwrite";
 
 const Success = () => {
   const navigate = useNavigate();
   const reference = localStorage.getItem("reference") || null;
   const secretKey = "5e69d915924e4c5c9b4f7dab88dab2d5";
   const [referencedata, setReferenceData] = useState({});
+  const [user, setUser] = useState(null);
 
-  if (!reference) {
-    navigate("/");
-  }
   useEffect(() => {
+    checkUserStatus();
     fetchResult();
   }, []);
 
+  const checkUserStatus = async () => {
+    try {
+      let accountDetails = await account.get();
+      setUser(accountDetails);
+    } catch (error) {
+      console.log(error);
+      setUser(null);
+    }
+  };
+
+  if (!user) {
+    return navigate("/");
+  }
   const fetchResult = () => {
     fetch(
       `https://api.pesepay.com/api/payments-engine/v1/payments/check-payment?referenceNumber=${reference}`,
@@ -43,7 +55,7 @@ const Success = () => {
           .updateDocument(
             "65b7a264bdbc83edc4e1",
             "65b7a27ba15d2a23890f",
-            decrypted.referenceNumber,
+            user.$id,
             {
               amountPaid:
                 decrypted.transactionStatus === "SUCCESS"
@@ -77,9 +89,11 @@ const Success = () => {
     <div>
       <div className="py-10 mx-[10vw] lg:mx[20vw]">
         <div className="flex justify-between items-center">
-          <div className="w-[200px]">
-            <img src="./pammi-logo.png" alt="" />
-          </div>
+          <Link to={"/"}>
+            <div className="w-[200px]">
+              <img src="./pammi-logo.png" alt="" />
+            </div>
+          </Link>
         </div>
 
         <div className="w-full flex items-center justify-center pt-16">

@@ -70,40 +70,19 @@ const App = () => {
                 <h1 className="font-bold">Late Registrations</h1>
                 <p>$200 after 8 February 2024</p>
               </div>
-              <p>For Enquiries Contact Liz +263772300101 </p>
+              <p>For Enquiries Contact +263772300101 </p>
               <p className="text-blue-500">
                 Act Swiftly before the window closes
               </p>
             </div>
-            <div className="flex-1 py-5">
-              <h1 className="font-bold text-xl pb-2">Payments Options</h1>
-              <div>
-                <h1 className="font-bold text-md">Banking Details</h1>
-                <p>
-                  <span className="font-semibold">
-                    Nostro Account Details Bank
-                  </span>
-                  : CBZ Branch: SELOUS AVE A/C{" "}
-                </p>
-                <p>
-                  {" "}
-                  <span className="font-semibold">Name</span>: NO WALLS MEDIA
-                  (PVT) LTD A/C No: 02125655390022
-                </p>
-                <p>
-                  {" "}
-                  <span className="font-semibold">Swift Code</span>:COBZZWHAXXX
-                </p>
-              </div>
-            </div>
           </div>
-          <div className="w-full flex justify-center flex-col items-center">
+          <div className="w-full flex justify-center flex-col items-center ">
             <p className="text-gray-400">
               Secure Online Registration: Effortlessly register and pay online:
               Visa, MasterCard, Innbucks or Ecocash USD
             </p>
 
-            <div className="text-center flex justify-center items-center">
+            <div className="text-center flex justify-center items-center mt-2">
               <Link to={"/register"} className="block">
                 <div className="bg-black text-white w-[150px] py-2 rounded">
                   Register Now

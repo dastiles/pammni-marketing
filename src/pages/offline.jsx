@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { account, appwriteDatabase } from "../utils/appwrite";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Offline = () => {
   const [accountNumber, setAccountNumber] = useState("");
@@ -57,9 +57,11 @@ const Offline = () => {
     <div>
       <div className="py-10 mx-[10vw] lg:mx[20vw]">
         <div className="flex justify-between items-center">
-          <div className="w-[200px]">
-            <img src="./pammi-logo.png" alt="" />
-          </div>
+          <Link to={"/"}>
+            <div className="w-[200px]">
+              <img src="./pammi-logo.png" alt="" />
+            </div>
+          </Link>
         </div>
 
         <div className="w-full flex items-center justify-center pt-16 flex-col">
@@ -72,8 +74,8 @@ const Offline = () => {
               </p>
             </div>
           </div>
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="border-[0.5px] border-gray-400 flex flex-col items-center gap-5 rounded py-4 px-5">
+          <div className="w-full md:w-4/6 lg:w-3/6  flex justify-center flex-col items-center gap-10">
+            <div className=" w-full border-[0.5px] border-gray-400 flex flex-col items-center gap-5 rounded py-4 px-5">
               <div>
                 <h1 className="font-bold text-md">Banking Details</h1>
                 <p>
@@ -111,7 +113,7 @@ const Offline = () => {
                   />
                   <input
                     type="text"
-                    placeholder="Enter Bank Account"
+                    placeholder="Enter Account Name"
                     className="border-[1px] border-gray-500 py-2 w-full"
                     onChange={(value) => setAccountNumber(value.target.value)}
                   />
@@ -124,21 +126,22 @@ const Offline = () => {
                 </div>
               </div>
             </div>
-            <div className="border-[0.5px] border-gray-400 flex flex-col items-center gap-5 rounded py-4 px-5">
-              <div>
-                <h1 className="font-bold text-md">Other Payments Details</h1>
-                <p>
-                  <span className="font-semibold">Innbucks:</span>
-                  +263778793029
-                </p>
-                <p>
-                  {" "}
-                  <span className="font-semibold">EcoCash</span>: +263778793029
-                </p>
+            <div className="w-full border-[0.5px] border-gray-400 flex flex-col items-center gap-5 ">
+              <div className="w-full">
+                <div className="">
+                  <img src="./innbucks.jpg" alt="" />
+                </div>
+
+                <div className="text-center text-xl py-5">
+                  Account Number:{" "}
+                  <span className="font-semibold">+263778793029</span>
+                </div>
               </div>
-              <div>
-                <p>For Enquiries Contact Liz +263772300101 </p>
-              </div>
+            </div>
+
+            <div className="w-full border-[0.5px] border-gray-400 flex flex-col items-center gap-5 justify-center text-center">
+              <h1 className="font-bold">Other Payment Details</h1>
+              <p>Please Contact +263772300101</p>
             </div>
           </div>
         </div>

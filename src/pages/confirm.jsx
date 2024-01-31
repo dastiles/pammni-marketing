@@ -152,9 +152,11 @@ const Confirm = () => {
     <div>
       <div className="py-10 mx-[10vw] lg:mx[20vw]">
         <div className="flex justify-between items-center">
-          <div className="w-[200px]">
-            <img src="./pammi-logo.png" alt="" />
-          </div>
+          <Link to={"/"}>
+            <div className="w-[200px]">
+              <img src="./pammi-logo.png" alt="" />
+            </div>
+          </Link>
         </div>
 
         <div className="w-full flex items-center justify-center pt-16">

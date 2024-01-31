@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { appwriteDatabase, client } from "../utils/appwrite";
 import DataTable from "react-data-table-component";
 import { CSVDownload, CSVLink } from "react-csv";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Admin = () => {
   const [clients, setClients] = useState();
@@ -85,9 +85,11 @@ const Admin = () => {
   return (
     <div className="py-10 mx-[10vw] lg:mx[20vw]">
       <div className="flex justify-between items-center">
-        <div className="w-[200px]">
-          <img src="./pammi-logo.png" alt="" />
-        </div>
+        <Link to={"/"}>
+          <div className="w-[200px]">
+            <img src="./pammi-logo.png" alt="" />
+          </div>
+        </Link>
       </div>
       <div className="full flex justify-end mt-5">
         <CSVLink

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { account } from "../utils/appwrite";
 import { ID } from "appwrite";
 import { toast } from "react-toastify";
@@ -106,9 +106,11 @@ const Register = () => {
     <div>
       <div className="py-10 mx-[10vw] lg:mx[20vw]">
         <div className="flex justify-between items-center">
-          <div className="w-[200px]">
-            <img src="./pammi-logo.png" alt="" />
-          </div>
+          <Link to={"/"}>
+            <div className="w-[200px]">
+              <img src="./pammi-logo.png" alt="" />
+            </div>
+          </Link>
         </div>
         <div className="flex flex-col justify-center items-center">
           <div className="text-center">
