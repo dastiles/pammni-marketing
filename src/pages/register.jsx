@@ -137,7 +137,7 @@ const Register = () => {
                 <input
                   type="text"
                   id="fullname"
-                  placeholder="stiles madhuku"
+                  placeholder=""
                   className="mt-1 w-[80vw] md:w-[60vw] lg:w-[50vw] rounded-md border-gray-200 shadow-sm "
                   value={formData.fullname}
                   onChange={handleInputChange}
@@ -158,7 +158,7 @@ const Register = () => {
                 <input
                   type="email"
                   id="email"
-                  placeholder="stiles madhuku"
+                  placeholder=""
                   className="mt-1 w-[80vw] md:w-[60vw] lg:w-[50vw] rounded-md border-gray-200 shadow-sm "
                   value={formData.email}
                   onChange={handleInputChange}
@@ -176,7 +176,7 @@ const Register = () => {
                 <input
                   type="number"
                   id="phoneNumber"
-                  placeholder="0771315239"
+                  placeholder=""
                   className="mt-1 w-[80vw] md:w-[60vw] lg:w-[50vw] rounded-md border-gray-200 shadow-sm "
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
@@ -194,7 +194,7 @@ const Register = () => {
                 <input
                   type="number"
                   id="tickets"
-                  placeholder="1"
+                  placeholder=""
                   className="mt-1 w-[80vw] md:w-[60vw] lg:w-[50vw] rounded-md border-gray-200 shadow-sm "
                   value={formData.tickets}
                   onChange={handleInputChange}
