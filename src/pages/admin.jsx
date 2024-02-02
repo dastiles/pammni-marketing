@@ -80,6 +80,13 @@ const Admin = () => {
   newData = clients.documents.map((item) => ({
     fullname: item.fullname,
     email: item.email,
+    phone: item.phone,
+    numberOfTickets: item.numberOfTickets,
+    amount: item.amountPaid,
+    paidStatus: item.paidStatus,
+    transactionType: item.transactionType,
+    TransactionOnlineStatus: item.transactionsStatus,
+    AccountName: item.bank_account,
   }));
   console.log(newData);
   return (
@@ -94,7 +101,7 @@ const Admin = () => {
       <div className="full flex justify-end mt-5">
         <CSVLink
           data={newData}
-          filename={"my-file.csv"}
+          filename={"pammi-marketing-customers.csv"}
           className="bg-gray-900 text-white px-5 py2 rounded"
           target="_blank"
         >

@@ -133,9 +133,13 @@ const Offline = () => {
                 </div>
 
                 <div className="text-center text-xl py-5">
-                  Account Number:{" "}
+                  Account Number(Innocent Mushamba):{" "}
                   <span className="font-semibold">+263778793029</span>
                 </div>
+                <p className="px-20 py-2">
+                  Send your payment confirmation to Innocent Mushamba using the
+                  same number via whatsapp
+                </p>
               </div>
             </div>
 
