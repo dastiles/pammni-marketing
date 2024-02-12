@@ -63,13 +63,10 @@ const App = () => {
           <div className="flex w-full flex-col-reverse md:flex-row">
             <div className="text-center py-5 flex flex-col gap-5 flex-1">
               <div>
-                <h1 className="font-bold">Early Bird Access</h1>
-                <p>$150 before 8 February 2024</p>
+                <h1 className="font-bold">Registration Fee</h1>
+                <p>$150 </p>
               </div>
-              <div>
-                <h1 className="font-bold">Late Registrations</h1>
-                <p>$200 after 8 February 2024</p>
-              </div>
+
               <p>For Enquiries Contact +263772300101 </p>
               <p className="text-blue-500">
                 Act Swiftly before the window closes

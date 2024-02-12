@@ -69,13 +69,9 @@ const Confirm = () => {
       });
   };
   const initiatePayment = () => {
-    let price =
-      new Date().getTime() < new Date(2024, 1, 8).getTime()
-        ? Number(state.tickets) * 150
-        : Number(state.tickets) * 200;
     let payment = {
       amountDetails: {
-        amount: price,
+        amount: 150,
         currencyCode: "USD",
       },
       reasonForPayment: "MARKETING",
@@ -199,7 +195,7 @@ const Confirm = () => {
                   $
                   {new Date().getTime() < new Date(2024, 1, 8).getTime()
                     ? Number(state.tickets) * 150
-                    : Number(state.tickets) * 200}
+                    : Number(state.tickets) * 150}
                 </p>
               </div>
               <div className="bg-slate-600 h-[1px] w-full"></div>
